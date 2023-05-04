@@ -37,9 +37,9 @@ You should now have your app running in Chrome on `http://localhost:3000`
 >
 > *Let's start by walking through the process of adding the routing, component and service calls need for resource updating*
 
-- [ ] First, we need to be able to navigate to the edit movie component. In App.js, add in the `<EditMovieForm>`component to the supplied edit route.
+- [x] First, we need to be able to navigate to the edit movie component. In App.js, add in the `<EditMovieForm>`component to the supplied edit route.
 
-- [ ] Next, we need to grab the id being passed into the component through the url. Use the `useParams` hook to get the id value.
+- [x] Next, we need to grab the id being passed into the component through the url. Use the `useParams` hook to get the id value.
 
 - [ ] We need to be able to load in the current movie's attributes into our local form state. When `EditMovieForm` mount, retrieve our current id's movie from the api and save the data returned to local state.
 

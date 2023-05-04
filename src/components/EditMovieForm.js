@@ -6,8 +6,12 @@ import axios from 'axios';
 
 const EditMovieForm = (props) => {
   const navigate = useNavigate();
-
   const { setMovies } = props;
+
+  // this comes from the `:id` in the <Route /> path 
+  const { id } = useParams();
+  console.log(id);
+
   const [movie, setMovie] = useState({
     title: "",
     director: "",
