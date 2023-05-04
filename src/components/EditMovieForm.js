@@ -29,7 +29,6 @@ const EditMovieForm = (props) => {
   useEffect(() => {
     axios.get(`http://localhost:9000/api/movies/${id}`)
       .then(res => {
-        console.log(res.data)
         setMovie(res.data)
       })
       .catch(err => console.error(err))
@@ -81,7 +80,7 @@ const EditMovieForm = (props) => {
           </div>
           <div className="modal-footer">
             <input type="submit" className="btn btn-info" value="Save" />
-            <Link to={`/movies/1`}><input type="button" className="btn btn-default" value="Cancel" /></Link>
+            <Link to={`/movies/${movie.id}`}><input type="button" className="btn btn-default" value="Cancel" /></Link>
           </div>
         </form>
       </div>
