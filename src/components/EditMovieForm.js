@@ -10,7 +10,6 @@ const EditMovieForm = (props) => {
 
   // this comes from the `:id` in the <Route /> path 
   const { id } = useParams();
-  console.log(id);
 
   const [movie, setMovie] = useState({
     title: "",
@@ -26,6 +25,15 @@ const EditMovieForm = (props) => {
       [e.target.name]: e.target.value
     });
   }
+
+  useEffect(() => {
+    axios.get(`http://localhost:9000/api/movies/${id}`)
+      .then(res => {
+        console.log(res.data)
+        setMovie(res.data)
+      })
+      .catch(err => console.error(err))
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
