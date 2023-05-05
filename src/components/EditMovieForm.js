@@ -42,7 +42,7 @@ const EditMovieForm = (props) => {
         navigate(`/movies/${movie.id}`);
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
       })
   }
 
