@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -21,13 +22,22 @@ const AddMovieForm = (props) => {
       [e.target.name]: e.target.value
     });
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:9000/api/movies/${id}`, movie)
+    console.log(movie);
+    // axios.put(`http://localhost:9000/api/movies/${id}`, movie)
+    //   .then(res => {
+    //     setMovies(res.data);
+    //     navigate(`/movies/${movie.id}`);
+    //   })
+    //   .catch(err => {
+    //     console.error(err);
+    //   })
+    axios.post(`http://localhost:9000/api/movies`, movie)
       .then(res => {
         setMovies(res.data);
-        navigate(`/movies/${movie.id}`);
+        navigate(`/movies`);
       })
       .catch(err => {
         console.error(err);
@@ -41,7 +51,7 @@ const AddMovieForm = (props) => {
       <div className="modal-content">
         <form onSubmit={handleSubmit}>
           <div className="modal-header">
-            <h4 className="modal-title">Editing <strong>{movie.title}</strong></h4>
+            <h4 className="modal-title">Adding <strong>{movie.title}</strong></h4>
           </div>
           <div className="modal-body">
             <div className="form-group">
@@ -68,7 +78,7 @@ const AddMovieForm = (props) => {
           </div>
           <div className="modal-footer">
             <input type="submit" className="btn btn-info" value="Save" />
-            <Link to={`/movies/${movie.id}`}><input type="button" className="btn btn-default" value="Cancel" /></Link>
+            <Link to={`/movies`}><input type="button" className="btn btn-default" value="Cancel" /></Link>
           </div>
         </form>
       </div>
